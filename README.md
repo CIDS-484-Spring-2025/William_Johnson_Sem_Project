@@ -5,15 +5,15 @@ I am remaking the board game Monopoly, but with a few rule chanes to make it mor
 
 CheckList:
 
-Rolling dice (check)
-Monopoly Board Movement (check)
-Choosing a direction to move after rolling (check)
-Mike moving as indended (check)
+Rolling dice (check),
+Monopoly Board Movement (check),
+Choosing a direction to move after rolling (check),
+Mike moving as indended (check),
 
-Purchasing properties
-Multiple players on the board at the same time
-Abtaining houses for properties
-Ability to go to jail
+Purchasing properties,
+Multiple players on the board at the same time,
+Abtaining houses for properties,
+Ability to go to jail,
 Items/Perks
 
 
