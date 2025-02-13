@@ -8,7 +8,7 @@ CheckList:
 Rolling dice (check),
 Monopoly Board Movement (check),
 Choosing a direction to move after rolling (check),
-Mike moving as indended (check),
+Mike moving as intended (check),
 
 Purchasing properties,
 Multiple players on the board at the same time,
