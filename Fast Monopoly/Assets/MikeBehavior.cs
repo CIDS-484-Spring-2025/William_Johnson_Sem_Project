@@ -8,6 +8,7 @@ public class MikeBehavior : MonoBehaviour
     public BordSpaceBehavior currentSpace;
     public GameObject goToJailSound;
     [HideInInspector] public NavMeshAgent navAgent;
+    public bool hasArrivedAtSpace = true;
 
 
     void Awake(){
@@ -33,10 +34,13 @@ public class MikeBehavior : MonoBehaviour
         }
 
         //if Mike lands on Go To Jail... then go to jail
-        if(navAgent.remainingDistance <= 0.2 && 
-           currentSpace == References.boardSpaces[30]){
+        if(navAgent.remainingDistance <= 0.2 && !hasArrivedAtSpace){
 
-            goToJail();
+            if(currentSpace == References.boardSpaces[30]){
+                goToJail();
+            }
+            stealMoney();
+            hasArrivedAtSpace = true;
 
         }
 
@@ -47,6 +51,7 @@ public class MikeBehavior : MonoBehaviour
         int spaceToMoveTo = nextSpaceInt();
         navAgent.destination = References.boardSpaces[spaceToMoveTo].transform.position;
         currentSpace = nextSpaceBNB();
+        hasArrivedAtSpace = false;
     }
 
     public int nextSpaceInt(){
@@ -66,6 +71,16 @@ public class MikeBehavior : MonoBehaviour
         navAgent.destination = transform.position;
         transform.LookAt(References.boardSpaces[11].transform.position);
 
+    }
+
+    public void stealMoney(){
+        foreach (User user in References.users){
+            if(user.piece.currentSpace.spaceIndex % 40 == currentSpace.spaceIndex - 1 % 40 ||
+            user.piece.currentSpace.spaceIndex % 40 == currentSpace.spaceIndex % 40 ||
+            user.piece.currentSpace.spaceIndex % 40 == currentSpace.spaceIndex + 1 % 40){
+                user.loseOrGainMoney(-100);
+            }
+        }
     }
 }
 

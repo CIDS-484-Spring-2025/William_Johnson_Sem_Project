@@ -11,7 +11,7 @@ public class PlayerBehavior : MonoBehaviour
 
 
     void Awake(){
-        References.player = this;
+        //References.player = this;
     }
 
     // Start is called before the first frame update

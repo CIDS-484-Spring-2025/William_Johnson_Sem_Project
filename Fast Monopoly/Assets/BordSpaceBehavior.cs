@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.SceneManagement;
 
 public class BordSpaceBehavior : MonoBehaviour
 {
-
     public string spaceName;
     public int spaceIndex;
     public GameObject highLight;
@@ -12,10 +13,29 @@ public class BordSpaceBehavior : MonoBehaviour
     public int ColorID;
     private string propertyColor;
     public int price;
-    [HideInInspector] public bool owned;
+    public GameObject[] ownershipHighlights = new GameObject[5];
+    public User owner;
+    public GameObject costForLandingCanvas;
+    public TextMeshProUGUI costForLandingTMP;
     void Awake(){
         References.boardSpaces[spaceIndex] = this;
         propertyColor = PropertyColors.findPropertyColor(ColorID);
+    }
+
+    void Start(){
+        if(owner != null && owner.banker){
+            activateOwnershipHighlight(5);
+        }
+    }
+
+    public void activateOwnershipHighlight(int playerNumber){
+        ownershipHighlights[playerNumber - 1].SetActive(true);
+        costForLandingCanvas.SetActive(true);
+        updateCostText(paymentForLanding);
+    }
+
+    public void updateCostText(int cost){
+        costForLandingTMP.text = "$" + cost.ToString();
     }
     
 }

@@ -22,17 +22,48 @@ public class CanvasBehavior : MonoBehaviour
     public CorCCButtonBehavior clockwiseButton;
     public Transform pointersChild;
     public TextMeshProUGUI PurchaseMenuHeaderText;
+    public GameObject UserDisplayInfo;
+    public playerInformationDisplayBehavior playerInfoPrefab;
+    [HideInInspector] public User currentUsersTurn;
     [HideInInspector] public BordSpaceBehavior counterClockwiseSpace;
     [HideInInspector] public BordSpaceBehavior clockwiseSpace;
     [HideInInspector] public BordSpaceBehavior currentSpace;
     [HideInInspector] public bool waitingForPiecesToBeInPosition = false;
     [HideInInspector] public bool hasJustClickedButton = false;
-    [HideInInspector] public int turnCount = -1;
+    [HideInInspector] public int turnCount;
 
 
     void Awake(){
         References.canvas = this;
     }
+
+    private void Start() {
+
+        StartCoroutine(setUpUserDisplays());
+
+        
+    }
+
+    IEnumerator setUpUserDisplays()
+    {
+        yield return null; //wait a frame
+
+        turnCount = 1;
+
+        //Create display info
+        foreach (User user in References.users)
+        {
+            playerInformationDisplayBehavior newPlayerInfo = Instantiate(playerInfoPrefab, UserDisplayInfo.transform);
+            user.displayInfo = newPlayerInfo;
+            newPlayerInfo.playerTagText.text = "Player " + user.playerNumber;
+            newPlayerInfo.name = "Player " + user.playerNumber + " Info"; 
+            user.UpdateMoneyText();
+        }
+        currentUsersTurn = References.users[0];
+        currentUsersTurn.displayInfo.currentTurnTracker.SetActive(true);
+    }
+
+    
 
     // Update is called once per frame
     void Update()
@@ -69,16 +100,27 @@ public class CanvasBehavior : MonoBehaviour
         }
 
         //if we have just finished rolling dice
-        if(waitingForPiecesToBeInPosition && References.player.hasReachedSpace()){
+        if(waitingForPiecesToBeInPosition && currentUsersTurn.piece.hasReachedSpace()){
 
             //if property is purchasable, open purchase menu. otherwise, next turn.
-            if(currentSpace.price != 0){
+            if(References.canvas.currentSpace.owner != null){ 
+                //lose money if you landed someone else's space
+                if(References.canvas.currentSpace.owner == currentUsersTurn){ //if you land on your own property, do thingthign special (increase rent idk)
+                    
+                }else{
+                    References.canvas.currentSpace.owner.loseOrGainMoney(References.canvas.currentSpace.paymentForLanding);
+                    currentUsersTurn.loseOrGainMoney(-References.canvas.currentSpace.paymentForLanding);
+                }
+                
+                clickDicePrompt.SetActive(true);
+                nextTurn();
+            }else if(currentSpace.price != 0){
                 displayPurchaseMenu();
             }else{
                 clickDicePrompt.SetActive(true);
+                nextTurn();
             }
             waitingForPiecesToBeInPosition = false;
-            nextTurn();
 
 
         }
@@ -91,10 +133,10 @@ public class CanvasBehavior : MonoBehaviour
         //setting all text/buttons to the correct thing
         diceRollText.SetText("You Rolled A " + References.getDiceSum());
 
-        counterClockwiseSpace = References.player.getDestinationCounterClockwiseBSB();
+        counterClockwiseSpace = currentUsersTurn.piece.getDestinationCounterClockwiseBSB();
         moveToCCText.SetText(counterClockwiseSpace.spaceName);
 
-        clockwiseSpace = References.player.getDestinationClockwiseBSB();
+        clockwiseSpace = currentUsersTurn.piece.getDestinationClockwiseBSB();
         moveToCText.SetText(clockwiseSpace.spaceName);
 
         counterClockwiseButton.spaceButtonIsUsedFor = counterClockwiseSpace;
@@ -109,14 +151,14 @@ public class CanvasBehavior : MonoBehaviour
     public void moveCC(){
 
         moveGivens();
-        References.player.moveCounterClockwise();
+        currentUsersTurn.piece.moveCounterClockwise();
 
     }
 
     public void moveC(){
 
         moveGivens();
-        References.player.moveClockwise();
+        currentUsersTurn.piece.moveClockwise();
         
     }
 
@@ -127,7 +169,7 @@ public class CanvasBehavior : MonoBehaviour
         waitingForPiecesToBeInPosition = true;
 
     }
-
+    
 
     public void StartNewGame(){
 
@@ -138,10 +180,33 @@ public class CanvasBehavior : MonoBehaviour
 
     }
 
-    void nextTurn(){
+    public void nextTurn(){
+
+        if(!References.rolledDoubledCheck()){
+
+            int currentUserNumber = currentUsersTurn.playerNumber;
+            User NextUser = References.users[(References.users.Count + (currentUserNumber - 1) + 1) % References.users.Count];
+
+            //full turn passes if previous players index is higher
+            if(currentUserNumber > NextUser.playerNumber){
+                endFullTurn();
+            }
+
+            //update turn tracker in user display info
+            currentUsersTurn.displayInfo.currentTurnTracker.SetActive(false);
+            NextUser.displayInfo.currentTurnTracker.SetActive(true);
+
+            currentUsersTurn = NextUser;
+
+        }
+        
+        hasJustClickedButton = false; 
+
+    }
+
+    void endFullTurn(){
 
         turnTrackerText.SetText((++turnCount).ToString());
-        hasJustClickedButton = false; //user has no longer "just clicked a button"
         
     }
 

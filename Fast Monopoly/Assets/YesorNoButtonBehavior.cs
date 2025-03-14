@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class YesorNoButtonBehavior : ButtonBehavior
 {
+    public Sprite insufficientFundSprite;
+    public Sprite bluePurchaseThumbSprite;
+    public GameObject declinedSound;
+    public GameObject acceptedSound;
 
-    // Update is called once per frame
     protected override void Update()
     {
 
@@ -15,8 +18,8 @@ public class YesorNoButtonBehavior : ButtonBehavior
 
             if(Input.GetButtonDown("Fire1")){
                 References.canvas.hasJustClickedButton = true;
-                playButtonSound();
                 eventToTrigger.Invoke();
+                playButtonSound();
             }
 
         }else{
@@ -27,8 +30,39 @@ public class YesorNoButtonBehavior : ButtonBehavior
         
     }
 
+    public void yesButton(){
+        //can buy
+        if(References.canvas.currentUsersTurn.money >= References.canvas.currentSpace.price){
+
+            //purchase property
+            References.canvas.currentUsersTurn.PurchaseProperty(References.canvas.currentSpace);
+            buttonSound = acceptedSound;
+
+            //move on with menu
+            References.canvas.purchaseMenu.SetActive(false);
+            References.canvas.clickDicePrompt.SetActive(true);
+
+            References.canvas.nextTurn();
+            
+        }else{ //insufficient funds
+
+            image.sprite = insufficientFundSprite;
+            StartCoroutine(ResetSpriteAfterDelay(0.15f));
+            buttonSound = declinedSound;
+
+        }
+    }
+
+    private IEnumerator ResetSpriteAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        image.sprite = bluePurchaseThumbSprite;
+    }
+
     public void noButton(){
         References.canvas.purchaseMenu.SetActive(false);
         References.canvas.clickDicePrompt.SetActive(true);
+        
+        References.canvas.nextTurn();
     }
 }
