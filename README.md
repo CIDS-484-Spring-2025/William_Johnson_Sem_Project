@@ -9,9 +9,9 @@ Rolling dice (check),
 Monopoly Board Movement (check),
 Choosing a direction to move after rolling (check),
 Mike moving as intended (check),
+Purchasing properties (check),
+Multiple players on the board at the same time (check)
 
-Purchasing properties,
-Multiple players on the board at the same time,
 Abtaining houses for properties,
 Ability to go to jail,
 Items/Perks
