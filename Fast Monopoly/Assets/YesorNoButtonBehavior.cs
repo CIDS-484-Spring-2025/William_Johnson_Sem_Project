@@ -1,6 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 
 public class YesorNoButtonBehavior : ButtonBehavior
 {
@@ -40,14 +44,12 @@ public class YesorNoButtonBehavior : ButtonBehavior
 
             //move on with menu
             References.canvas.purchaseMenu.SetActive(false);
-            References.canvas.clickDicePrompt.SetActive(true);
-
             References.canvas.nextTurn();
             
-        }else{ //insufficient funds
+        }else{//insufficient funds
 
             image.sprite = insufficientFundSprite;
-            StartCoroutine(ResetSpriteAfterDelay(0.15f));
+            StartCoroutine(ResetSpriteAfterDelay(0.17f));
             buttonSound = declinedSound;
 
         }
@@ -59,10 +61,42 @@ public class YesorNoButtonBehavior : ButtonBehavior
         image.sprite = bluePurchaseThumbSprite;
     }
 
+    public void getOutOfJailPayment(){
+        //can buy
+        if(References.canvas.currentUsersTurn.money >= 300){
+
+            References.canvas.currentUsersTurn.loseOrGainMoney(-300);
+            References.canvas.jailedMenu.SetActive(false);
+            References.canvas.currentUsersTurn.getOutOfJail();
+            References.canvas.clickDicePrompt.SetActive(true);
+            
+        }else{//insufficient funds
+
+            image.sprite = insufficientFundSprite;
+            StartCoroutine(ResetSpriteAfterDelay(0.17f));
+            buttonSound = declinedSound;
+
+        }
+    }
+
     public void noButton(){
         References.canvas.purchaseMenu.SetActive(false);
-        References.canvas.clickDicePrompt.SetActive(true);
+        References.canvas.rerollDiceMenu.SetActive(false);
         
         References.canvas.nextTurn();
+    }
+
+    public void jailedNoButton(){
+
+        References.canvas.currentUsersTurn.loseOrGainMoney(-100);
+        References.canvas.jailedMenu.SetActive(false);
+        References.canvas.clickDicePrompt.SetActive(true);
+
+    }
+
+    public void rerollDice(){
+        References.canvas.rerollDiceMenu.SetActive(false);
+        References.canvas.clickDicePrompt.SetActive(true);
+        References.canvas.currentUsersTurn.items[0]--;
     }
 }

@@ -6,6 +6,7 @@ using UnityEngine.AI;
 public class PlayerBehavior : MonoBehaviour
 {
     public BordSpaceBehavior currentSpace;
+    public GameObject model;
     [HideInInspector] public NavMeshAgent navAgent;
     [HideInInspector] public bool playerIsMovingToMike = false;
 

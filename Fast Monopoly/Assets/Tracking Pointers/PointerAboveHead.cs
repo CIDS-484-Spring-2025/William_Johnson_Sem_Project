@@ -7,7 +7,7 @@ using System;
 public class PointerAboveHead : MonoBehaviour
 {
     public PointerArrowPrefabBehavior pointerPrefab;
-    public string displayText;  // Use 'string' instead of 'String'
+    public string displayText;  
     [HideInInspector] public GameObject instantiatedPointer;
 
     void Start()

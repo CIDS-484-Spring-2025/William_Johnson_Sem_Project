@@ -48,5 +48,10 @@ MonoBehaviour:
   money: 1000
   banker: 0
   propertiesOwned: []
+  items: 00000000
   piece: {fileID: 0}
+  pointer: {fileID: 0}
+  jailedSound: {fileID: 1046925949781064148, guid: 0d7923a5345107f4cadc0bec45289e1e, type: 3}
   displayInfo: {fileID: 0}
+  jailedPiece: {fileID: 0}
+  jailed: 0

@@ -70,7 +70,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentSpace: {fileID: 0}
+  model: {fileID: 3018996401163307464}
   navAgent: {fileID: 0}
+  playerIsMovingToMike: 0
 --- !u!114 &3448816049542165204
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -84,7 +86,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pointerPrefab: {fileID: 5540002813788705769, guid: 527d100ffe9002a4c81b6e048d8116a5, type: 3}
-  displayName: Player
+  displayText: 
   instantiatedPointer: {fileID: 0}
 --- !u!1001 &2676484988622910617
 PrefabInstance:
@@ -162,6 +164,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: dc33796fc5ab37c4ab4511b0f36d32ac, type: 2}
     - target: {fileID: -6652725513331149018, guid: d4f7245798c2775408912fd956656c31, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -6652725513331149018, guid: d4f7245798c2775408912fd956656c31, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: dc33796fc5ab37c4ab4511b0f36d32ac, type: 2}
@@ -226,5 +232,10 @@ PrefabInstance:
 --- !u!4 &2499059740336051058 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d4f7245798c2775408912fd956656c31, type: 3}
+  m_PrefabInstance: {fileID: 2676484988622910617}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3018996401163307464 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d4f7245798c2775408912fd956656c31, type: 3}
   m_PrefabInstance: {fileID: 2676484988622910617}
   m_PrefabAsset: {fileID: 0}

@@ -10,6 +10,10 @@ public class CanvasBehavior : MonoBehaviour
     public GameObject clickDicePrompt;
     public GameObject selectionMenu;
     public GameObject purchaseMenu;
+    public GameObject communityChestMenu;
+    public GameObject chanceTimeMenu;
+    public GameObject jailedMenu;
+    public GameObject rerollDiceMenu;
     public GameObject deathMenu;
     public TextMeshProUGUI diceRollText;
     public TextMeshProUGUI moveToCCText;
@@ -81,7 +85,8 @@ public class CanvasBehavior : MonoBehaviour
         }
 
         //if the click dice prompt is not active, wait until dice are finished rolling
-        if(!clickDicePrompt.activeSelf && !waitingForPiecesToBeInPosition && !purchaseMenu.activeSelf){
+        if( !clickDicePrompt.activeSelf && !waitingForPiecesToBeInPosition && !purchaseMenu.activeSelf && 
+            !communityChestMenu.activeSelf && !chanceTimeMenu.activeSelf && !jailedMenu.activeSelf){
 
             foreach (DiceBehavior die in References.allDice)
             {
@@ -90,20 +95,37 @@ public class CanvasBehavior : MonoBehaviour
                     break;
                 }
 
-                //if this is the last die in the loop, display selection menu
+                //if this is the last die in the loop, then dice have finished rolling
                 if(die == References.allDice[References.allDice.Count - 1]){
-                    displaySelectionMenu();
+
+                    if(currentUsersTurn.items[0] > 0){ //if User has reroll dice item
+                        rerollDiceMenu.SetActive(true);
+                    }else{
+                        if(!currentUsersTurn.jailed || References.rolledDoubledCheck()){
+                            currentUsersTurn.getOutOfJail();
+                            displaySelectionMenu();
+                        }else{//if jailed
+                            nextTurn();
+                        }
+                    }
                 }
 
             }
 
         }
 
-        //if we have just finished rolling dice
+        //if we have just finished rolling dice and player has reached space
         if(waitingForPiecesToBeInPosition && currentUsersTurn.piece.hasReachedSpace()){
 
+            if(currentSpace.jail){
+                currentUsersTurn.goToJail();
+            }else if(currentSpace.communityChest){
+                communityChestMenu.SetActive(true);
+            }else if(currentSpace.chanceTime){
+                chanceTimeMenu.SetActive(true);
+            }
             //if property is purchasable, open purchase menu. otherwise, next turn.
-            if(References.canvas.currentSpace.owner != null){ 
+            else if(References.canvas.currentSpace.owner != null){ 
                 //lose money if you landed someone else's space
                 if(References.canvas.currentSpace.owner == currentUsersTurn){ //if you land on your own property, do thingthign special (increase rent idk)
                     
@@ -112,12 +134,10 @@ public class CanvasBehavior : MonoBehaviour
                     currentUsersTurn.loseOrGainMoney(-References.canvas.currentSpace.paymentForLanding);
                 }
                 
-                clickDicePrompt.SetActive(true);
                 nextTurn();
             }else if(currentSpace.price != 0){
                 displayPurchaseMenu();
             }else{
-                clickDicePrompt.SetActive(true);
                 nextTurn();
             }
             waitingForPiecesToBeInPosition = false;
@@ -182,7 +202,8 @@ public class CanvasBehavior : MonoBehaviour
 
     public void nextTurn(){
 
-        if(!References.rolledDoubledCheck()){
+
+        if(!References.rolledDoubledCheck() || currentUsersTurn.jailed){
 
             int currentUserNumber = currentUsersTurn.playerNumber;
             User NextUser = References.users[(References.users.Count + (currentUserNumber - 1) + 1) % References.users.Count];
@@ -198,6 +219,16 @@ public class CanvasBehavior : MonoBehaviour
 
             currentUsersTurn = NextUser;
 
+            if(!currentUsersTurn.jailed){
+                clickDicePrompt.SetActive(true);
+            }else{//if jailed
+                jailedMenu.SetActive(true);
+            }
+
+        }else if(false){//TODO Check if player rolled 3 doubles in a row
+
+        }else{//if player has rolled less than 3 doubles in a row
+            clickDicePrompt.SetActive(true);
         }
         
         hasJustClickedButton = false; 
@@ -207,6 +238,16 @@ public class CanvasBehavior : MonoBehaviour
     void endFullTurn(){
 
         turnTrackerText.SetText((++turnCount).ToString());
+
+        foreach (User user in References.users)
+        {
+            user.loseOrGainMoney(100);
+
+            foreach (BordSpaceBehavior property in user.propertiesOwned)
+            {
+                property.doubleCost();
+            }
+        }
         
     }
 

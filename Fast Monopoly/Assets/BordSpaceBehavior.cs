@@ -17,6 +17,9 @@ public class BordSpaceBehavior : MonoBehaviour
     public User owner;
     public GameObject costForLandingCanvas;
     public TextMeshProUGUI costForLandingTMP;
+    public bool communityChest;
+    public bool chanceTime;
+    public bool jail;
     void Awake(){
         References.boardSpaces[spaceIndex] = this;
         propertyColor = PropertyColors.findPropertyColor(ColorID);
@@ -36,6 +39,11 @@ public class BordSpaceBehavior : MonoBehaviour
 
     public void updateCostText(int cost){
         costForLandingTMP.text = "$" + cost.ToString();
+    }
+
+    public void doubleCost(){
+        paymentForLanding *= 2;
+        updateCostText(paymentForLanding);
     }
     
 }
