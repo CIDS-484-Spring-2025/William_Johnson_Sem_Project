@@ -78,7 +78,11 @@ public class MikeBehavior : MonoBehaviour
             if(user.piece.currentSpace.spaceIndex % 40 == currentSpace.spaceIndex - 1 % 40 ||
             user.piece.currentSpace.spaceIndex % 40 == currentSpace.spaceIndex % 40 ||
             user.piece.currentSpace.spaceIndex % 40 == currentSpace.spaceIndex + 1 % 40){
-                user.loseOrGainMoney(-100);
+                if(user.perks[3]){//user has +100 from mike perk
+                    user.loseOrGainMoney(100);
+                }else{
+                    user.loseOrGainMoney(-100);
+                }
             }
         }
     }

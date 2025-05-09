@@ -5,6 +5,8 @@ using UnityEngine.UI;
 public class PerkOrItemButtonBehavior : ButtonBehavior
 {
     private Dictionary<Image, Color> originalColors = new Dictionary<Image, Color>();
+    public int removalIndex;
+    public bool clickable = true;
 
     protected override void Start()
     {
@@ -14,7 +16,10 @@ public class PerkOrItemButtonBehavior : ButtonBehavior
 
     protected override void Update()
     {
-        if (RectTransformUtility.RectangleContainsScreenPoint(rectangle, Input.mousePosition))
+        if(!clickable){
+
+        }
+        else if (RectTransformUtility.RectangleContainsScreenPoint(rectangle, Input.mousePosition))
         {
             ResetImageAndChildrenToOriginalColor(this.image);
 

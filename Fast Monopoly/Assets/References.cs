@@ -10,6 +10,7 @@ public class References
     public static MikeBehavior mike;
     public static List<DiceBehavior> allDice = new List<DiceBehavior>();
     public static List<User> users = new List<User>();
+    public static int numUsers = 4;
     public static int getDiceSum(){
 
         int sum = 0;
@@ -30,5 +31,22 @@ public class References
             }
         }
         return true;
+    }
+
+    public static int endGameCheck(){
+        int alivePlayers = 0;
+        int winningPlayerNumber = 0;
+        foreach (User user in users)
+        {
+            if(!user.dead){
+                alivePlayers++;
+                winningPlayerNumber = user.playerNumber;
+            }
+        }
+
+        if(alivePlayers > 1){
+            return 0;
+        }
+        return winningPlayerNumber;
     }
 }

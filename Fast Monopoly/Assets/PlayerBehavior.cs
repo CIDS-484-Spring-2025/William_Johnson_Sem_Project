@@ -7,18 +7,18 @@ public class PlayerBehavior : MonoBehaviour
 {
     public BordSpaceBehavior currentSpace;
     public GameObject model;
+    public int playerIndex;
     [HideInInspector] public NavMeshAgent navAgent;
     [HideInInspector] public bool playerIsMovingToMike = false;
-
-
-    void Awake(){
-        //References.player = this;
-    }
 
     // Start is called before the first frame update
     void Start()
     {
         navAgent = GetComponent<NavMeshAgent>();
+
+        if(playerIndex > References.numUsers){
+            Destroy(this.gameObject);
+        }
     }
 
 

@@ -4,21 +4,34 @@ ScriptsOnlyBuild:
     - BordSpaceBehavior
     - ButtonBehavior
     - CanvasBehavior
+    - CommunityChestManager
     - CorCCButtonBehavior
+    - Dice3SpawnpointBehavior
     - DiceBehavior
     - DiceSide
+    - EffectsBehavior
     - EscapeToCloseGame
     - FastForwardButtons
+    - JailedPlayerBehavior
     - MainMenuCanvasBehavior
     - MaterialChanger
     - MikeBehavior
     - OneShotSound
+    - PerkItemSpawnerBehavior
+    - PerkOrItemButtonBehavior
     - PiviotPointBehavior
     - PlayerBehavior
     - PointerAboveHead
     - PointerArrowPrefabBehavior
+    - PopupProfitTextBehavior
+    - RerollDiceMenu
+    - RollWith3Dice
     - User
+    - UserManagarManager
     - YesorNoButtonBehavior
+    - getXMoneyBehavior
+    - itemBehavior
+    - playerInformationDisplayBehavior
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
     Unity.TextMeshPro.dll:
@@ -91,11 +104,77 @@ ScriptsOnlyBuild:
     fullTypeName: MainMenuCanvasBehavior
     methodName: backButton
   - assembly: Assembly-CSharp
+    fullTypeName: getXMoneyBehavior
+    methodName: action
+  - assembly: Assembly-CSharp
+    fullTypeName: EffectsBehavior
+    methodName: skipNextPlayersTurn
+  - assembly: Assembly-CSharp
+    fullTypeName: EffectsBehavior
+    methodName: obtainARandomUnownedProperty
+  - assembly: Assembly-CSharp
+    fullTypeName: EffectsBehavior
+    methodName: doublePropertyCost
+  - assembly: Assembly-CSharp
+    fullTypeName: itemBehavior
+    methodName: getItem
+  - assembly: Assembly-CSharp
+    fullTypeName: EffectsBehavior
+    methodName: loss500AtStartOfEveryTurnEvent
+  - assembly: Assembly-CSharp
+    fullTypeName: EffectsBehavior
+    methodName: onlyMoveClockwiseEvent
+  - assembly: Assembly-CSharp
+    fullTypeName: EffectsBehavior
+    methodName: rollWith3DiceEvent
+  - assembly: Assembly-CSharp
+    fullTypeName: EffectsBehavior
+    methodName: randomlyDivideAllUnownedProperties
+  - assembly: Assembly-CSharp
+    fullTypeName: itemBehavior
+    methodName: getPerk
+  - assembly: Assembly-CSharp
+    fullTypeName: itemBehavior
+    methodName: getPerk
+  - assembly: Assembly-CSharp
+    fullTypeName: itemBehavior
+    methodName: getPerk
+  - assembly: Assembly-CSharp
+    fullTypeName: itemBehavior
+    methodName: getPerk
+  - assembly: Assembly-CSharp
+    fullTypeName: EffectsBehavior
+    methodName: duckEvent
+  - assembly: Assembly-CSharp
+    fullTypeName: EffectsBehavior
+    methodName: cursed
+  - assembly: Assembly-CSharp
+    fullTypeName: EffectsBehavior
+    methodName: loseAllOfYourProperties
+  - assembly: Assembly-CSharp
+    fullTypeName: EffectsBehavior
+    methodName: goToJailEffect
+  - assembly: Assembly-CSharp
+    fullTypeName: EffectsBehavior
+    methodName: sendAllPlayersToJail
+  - assembly: Assembly-CSharp
+    fullTypeName: itemBehavior
+    methodName: getItem
+  - assembly: Assembly-CSharp
+    fullTypeName: YesorNoButtonBehavior
+    methodName: yesButton
+  - assembly: Assembly-CSharp
     fullTypeName: YesorNoButtonBehavior
     methodName: noButton
   - assembly: Assembly-CSharp
     fullTypeName: CanvasBehavior
     methodName: moveC
+  - assembly: Assembly-CSharp
+    fullTypeName: ButtonBehavior
+    methodName: ok
+  - assembly: Assembly-CSharp
+    fullTypeName: YesorNoButtonBehavior
+    methodName: rerollDice
   - assembly: Assembly-CSharp
     fullTypeName: FastForwardButtons
     methodName: x4Speed
@@ -103,14 +182,29 @@ ScriptsOnlyBuild:
     fullTypeName: FastForwardButtons
     methodName: x2Speed
   - assembly: Assembly-CSharp
+    fullTypeName: YesorNoButtonBehavior
+    methodName: jailedNoButton
+  - assembly: Assembly-CSharp
     fullTypeName: CanvasBehavior
     methodName: StartNewGame
+  - assembly: Assembly-CSharp
+    fullTypeName: YesorNoButtonBehavior
+    methodName: getOutOfJailPayment
   - assembly: Assembly-CSharp
     fullTypeName: CanvasBehavior
     methodName: moveCC
   - assembly: Assembly-CSharp
+    fullTypeName: YesorNoButtonBehavior
+    methodName: justSayNo
+  - assembly: Assembly-CSharp
+    fullTypeName: YesorNoButtonBehavior
+    methodName: rerollDiceNoButton
+  - assembly: Assembly-CSharp
     fullTypeName: FastForwardButtons
     methodName: x1Speed
+  - assembly: Assembly-CSharp
+    fullTypeName: YesorNoButtonBehavior
+    methodName: JustSayNoNoButton
   sceneClasses:
     Assets/Scenes/Game.unity:
     - Class: 1
@@ -148,53 +242,81 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1582}
+      Script: {instanceID: 1540}
     - Class: 114
-      Script: {instanceID: 1786}
+      Script: {instanceID: 1542}
     - Class: 114
-      Script: {instanceID: 1906}
+      Script: {instanceID: 1586}
     - Class: 114
-      Script: {instanceID: 1968}
+      Script: {instanceID: 1790}
     - Class: 114
-      Script: {instanceID: 2120}
+      Script: {instanceID: 1910}
     - Class: 114
-      Script: {instanceID: 2314}
+      Script: {instanceID: 1972}
     - Class: 114
-      Script: {instanceID: 2572}
+      Script: {instanceID: 2124}
     - Class: 114
-      Script: {instanceID: 2762}
+      Script: {instanceID: 2318}
     - Class: 114
-      Script: {instanceID: 2774}
+      Script: {instanceID: 2576}
     - Class: 114
-      Script: {instanceID: 3206}
+      Script: {instanceID: 2766}
     - Class: 114
-      Script: {instanceID: 3716}
+      Script: {instanceID: 2778}
     - Class: 114
-      Script: {instanceID: 4370}
+      Script: {instanceID: 3180}
     - Class: 114
-      Script: {instanceID: 4884}
+      Script: {instanceID: 3212}
     - Class: 114
-      Script: {instanceID: 4946}
+      Script: {instanceID: 3230}
     - Class: 114
-      Script: {instanceID: 5398}
+      Script: {instanceID: 3710}
     - Class: 114
-      Script: {instanceID: 5486}
+      Script: {instanceID: 3726}
     - Class: 114
-      Script: {instanceID: 5592}
+      Script: {instanceID: 3758}
     - Class: 114
-      Script: {instanceID: 5634}
+      Script: {instanceID: 4382}
     - Class: 114
-      Script: {instanceID: 5942}
+      Script: {instanceID: 4526}
     - Class: 114
-      Script: {instanceID: 5974}
+      Script: {instanceID: 4898}
     - Class: 114
-      Script: {instanceID: 6478}
+      Script: {instanceID: 4960}
     - Class: 114
-      Script: {instanceID: 6736}
+      Script: {instanceID: 4964}
     - Class: 114
-      Script: {instanceID: 41652}
+      Script: {instanceID: 5040}
     - Class: 114
-      Script: {instanceID: 62166}
+      Script: {instanceID: 5096}
+    - Class: 114
+      Script: {instanceID: 5212}
+    - Class: 114
+      Script: {instanceID: 5420}
+    - Class: 114
+      Script: {instanceID: 5544}
+    - Class: 114
+      Script: {instanceID: 5614}
+    - Class: 114
+      Script: {instanceID: 5656}
+    - Class: 114
+      Script: {instanceID: 5964}
+    - Class: 114
+      Script: {instanceID: 5996}
+    - Class: 114
+      Script: {instanceID: 6028}
+    - Class: 114
+      Script: {instanceID: 6450}
+    - Class: 114
+      Script: {instanceID: 6502}
+    - Class: 114
+      Script: {instanceID: 6760}
+    - Class: 114
+      Script: {instanceID: 6814}
+    - Class: 114
+      Script: {instanceID: 7650}
+    - Class: 114
+      Script: {instanceID: 72724}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -253,31 +375,33 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1582}
+      Script: {instanceID: 1540}
     - Class: 114
-      Script: {instanceID: 2160}
+      Script: {instanceID: 1542}
     - Class: 114
-      Script: {instanceID: 2686}
+      Script: {instanceID: 1586}
     - Class: 114
-      Script: {instanceID: 2774}
+      Script: {instanceID: 2164}
     - Class: 114
-      Script: {instanceID: 3206}
+      Script: {instanceID: 2690}
     - Class: 114
-      Script: {instanceID: 3716}
+      Script: {instanceID: 2778}
     - Class: 114
-      Script: {instanceID: 4024}
+      Script: {instanceID: 3180}
     - Class: 114
-      Script: {instanceID: 4272}
+      Script: {instanceID: 3212}
     - Class: 114
-      Script: {instanceID: 4946}
+      Script: {instanceID: 3726}
     - Class: 114
-      Script: {instanceID: 4990}
+      Script: {instanceID: 4036}
     - Class: 114
-      Script: {instanceID: 5486}
+      Script: {instanceID: 4284}
     - Class: 114
-      Script: {instanceID: 5634}
+      Script: {instanceID: 4960}
     - Class: 114
-      Script: {instanceID: 6344}
+      Script: {instanceID: 5006}
+    - Class: 114
+      Script: {instanceID: 5656}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -295,6 +419,18 @@ ScriptsOnlyBuild:
     - Class: 238
       Script: {instanceID: 0}
   scriptHashData:
+  - hash:
+      serializedVersion: 2
+      Hash: a1aa98c78061c6f03a8c124cda576e67
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.UI
+    className: CanvasScaler
+  - hash:
+      serializedVersion: 2
+      Hash: 3164bc883ff663a5cdb32d1ef7e7c0c5
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.UI
+    className: VerticalLayoutGroup
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -345,7 +481,7 @@ ScriptsOnlyBuild:
     className: UnityOnCollisionStayMessageListener
   - hash:
       serializedVersion: 2
-      Hash: ad181fefe1d9db7dfe6dce218a0a77bb
+      Hash: f31be92ffe845e1b6568ecec870c9a33
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: BordSpaceBehavior
@@ -357,7 +493,7 @@ ScriptsOnlyBuild:
     className: UnityOnMouseExitMessageListener
   - hash:
       serializedVersion: 2
-      Hash: 487aaf6e46e2cc7bdd82fcf1f39a71a4
+      Hash: 6fe9dd4d80600f77c327314403c65d7b
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: CanvasBehavior
@@ -369,7 +505,7 @@ ScriptsOnlyBuild:
     className: FastForwardButtons
   - hash:
       serializedVersion: 2
-      Hash: 2bfafc9cf8e5cf41e7aa6524b2047202
+      Hash: 53f12c856f7123aae79722193b298681
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerBehavior
@@ -582,6 +718,12 @@ ScriptsOnlyBuild:
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
+    className: EscapeToCloseGame
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
     className: OneShotSound
   - hash:
       serializedVersion: 2
@@ -589,6 +731,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: ContentSizeFitter
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PerkItemSpawnerBehavior
   - hash:
       serializedVersion: 2
       Hash: 2574ac7d50617d23cdefe4ad22f5e1ad
@@ -658,6 +806,12 @@ ScriptsOnlyBuild:
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: EffectsBehavior
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Unity.VisualScripting.Core.dll
     namespaceName: Unity.VisualScripting
     className: UnityOnPointerExitMessageListener
@@ -667,6 +821,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ButtonBehavior
+  - hash:
+      serializedVersion: 2
+      Hash: 5e7f03944cf3fc64f275d1ba73bc29d9
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: RollWith3Dice
   - hash:
       serializedVersion: 2
       Hash: aba7b2852ef61d175dd9602e7723d5e5
@@ -753,7 +913,7 @@ ScriptsOnlyBuild:
     className: UnityOnCancelMessageListener
   - hash:
       serializedVersion: 2
-      Hash: 7fc5fe27d205b5ced91cbe12d1f6af29
+      Hash: ae9fd368dd760a119e79914a43e5d033
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: User
@@ -763,6 +923,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core.dll
     namespaceName: Unity.VisualScripting
     className: UnityOnPointerClickMessageListener
+  - hash:
+      serializedVersion: 2
+      Hash: ee98729079998eb63435f99f41b30b9e
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PopupProfitTextBehavior
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -849,10 +1015,28 @@ ScriptsOnlyBuild:
     className: TMP_FontAsset
   - hash:
       serializedVersion: 2
+      Hash: 29a44f3ff675f610bf277b4d8e369d2b
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: UserManagarManager
+  - hash:
+      serializedVersion: 2
       Hash: 1ea5426ec19722694b55cceb1ea844b6
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: MainMenuCanvasBehavior
+  - hash:
+      serializedVersion: 2
+      Hash: ee98729079998eb63435f99f41b30b9e
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: getXMoneyBehavior
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: JailedPlayerBehavior
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -879,6 +1063,12 @@ ScriptsOnlyBuild:
     className: UnityOnDeselectMessageListener
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Dice3SpawnpointBehavior
+  - hash:
+      serializedVersion: 2
       Hash: 699619b86d9359741a4f58540298c80b
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -891,16 +1081,16 @@ ScriptsOnlyBuild:
     className: StateGraphAsset
   - hash:
       serializedVersion: 2
-      Hash: 4408772ddc30aa09e9709e0e5a960dc4
+      Hash: 6d1643a0a7e32f681eb2edf7a676671f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: MikeBehavior
   - hash:
       serializedVersion: 2
-      Hash: a1aa98c78061c6f03a8c124cda576e67
-    assemblyName: UnityEngine.UI.dll
-    namespaceName: UnityEngine.UI
-    className: CanvasScaler
+      Hash: 38c5ee1e90d71f17c842092933954f89
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: YesorNoButtonBehavior
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -969,6 +1159,12 @@ ScriptsOnlyBuild:
     className: BeforeAfterTestCommandState
   - hash:
       serializedVersion: 2
+      Hash: fd3ecaa6af235acd728c37cddc2ad77a
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: playerInformationDisplayBehavior
+  - hash:
+      serializedVersion: 2
       Hash: 4fd8bf02e3089425d3502e26c44ba31a
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
@@ -999,16 +1195,16 @@ ScriptsOnlyBuild:
     className: PlayableTrack
   - hash:
       serializedVersion: 2
-      Hash: 3164bc883ff663a5cdb32d1ef7e7c0c5
-    assemblyName: UnityEngine.UI.dll
-    namespaceName: UnityEngine.UI
-    className: VerticalLayoutGroup
-  - hash:
-      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Unity.VisualScripting.Core.dll
     namespaceName: Unity.VisualScripting
     className: UnityOnCollisionExitMessageListener
+  - hash:
+      serializedVersion: 2
+      Hash: 3297fe445561beb38532589fe367f770
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PerkOrItemButtonBehavior
   - hash:
       serializedVersion: 2
       Hash: eefb84689ff4e35165731ee4cc9f98ab
@@ -1087,6 +1283,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: SignalTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 374047110c294af02bf566f52757ba7b
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CommunityChestManager
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -1173,24 +1375,25 @@ ScriptsOnlyBuild:
     className: TouchInputModule
   - hash:
       serializedVersion: 2
+      Hash: 0de575c6fe29652ef87ba867d06b5434
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: itemBehavior
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Unity.VisualScripting.Core.dll
     namespaceName: Unity.VisualScripting
     className: UnityOnSliderValueChangedMessageListener
   - hash:
       serializedVersion: 2
-      Hash: 0ff80b791649511dc60c28c1adfdf7dc
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: YesorNoButtonBehavior
-  - hash:
-      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: EscapeToCloseGame
+    className: RerollDiceMenu
   platform: 19
   scenePathNames:
   - Assets/Scenes/Main Menu.unity
   - Assets/Scenes/Game.unity
-  playerPath: C:/Users/wcj99/OneDrive/Desktop/Games I've Made/Infinite Spunch.exe
+  playerPath: C:/Users/wcj99/OneDrive/Desktop/Games I've Made/Fast Monopoly/Infinite
+    Spunch.exe

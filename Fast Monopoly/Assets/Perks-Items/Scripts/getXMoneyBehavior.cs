@@ -6,12 +6,16 @@ using TMPro;
 public class getXMoneyBehavior : MonoBehaviour
 {
     public TextMeshProUGUI text;
-    private  int amount;
+    private int amount;
 
     // Start is called before the first frame update
     void Start()
     {
-        amount = Random.Range(-5, 11) * 50; //random multiple of 50 number from -250 to 500
+
+        do{
+            amount = Random.Range(-10, 11) * 50; //random multiple of 50 number from -500 to 500
+        }while(amount == 0);
+
         if(amount < 0){
             text.text = "lose $" + amount;
         }else{
@@ -23,10 +27,12 @@ public class getXMoneyBehavior : MonoBehaviour
 
         References.canvas.currentUsersTurn.loseOrGainMoney(amount);
 
-        References.canvas.communityChestMenu.SetActive(false);
-        References.canvas.chanceTimeMenu.SetActive(false);
+            References.canvas.communityChestMenu.SetActive(false);
+            References.canvas.chanceTimeMenu.SetActive(false);
 
-        References.canvas.nextTurn();
+        if(EffectsBehavior.endTurnAfterAction){
+            References.canvas.nextTurn();
+        }
             
     }
 }

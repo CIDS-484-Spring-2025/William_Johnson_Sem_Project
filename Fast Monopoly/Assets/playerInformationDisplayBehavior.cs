@@ -12,5 +12,6 @@ public class playerInformationDisplayBehavior : MonoBehaviour
     public GameObject popUpProfitPartent;
     public PopupProfitTextBehavior PopuptextPrefab;
     public GameObject jailBarsOverlay;
+    public GameObject skullAndCrossbonesOverlay;
 
 }

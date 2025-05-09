@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class DiceBehavior : MonoBehaviour
 {
-
     public GameObject[] mySides = new GameObject[6];
     public GameObject diceThrowingSound;
     public GameObject diceRollingSound;
     [HideInInspector] public GameObject topSide;
     [HideInInspector] public bool justSpawned = true;
+    public static Dice3SpawnpointBehavior dice3SpawnPoint;
 
     private void Awake(){
         References.allDice.Add(this);

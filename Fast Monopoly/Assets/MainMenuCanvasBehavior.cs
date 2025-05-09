@@ -16,12 +16,6 @@ public class MainMenuCanvasBehavior : MonoBehaviour
         currentMenu = mainMenu;
     }
 
-    void Update()
-    {
-        
-    }
-
-
     public void StartNewGame(){
         Time.timeScale = 1;
         SceneManager.LoadScene("Game");

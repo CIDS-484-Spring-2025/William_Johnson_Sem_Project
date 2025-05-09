@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class UserManagarManager : MonoBehaviour
 {
-    public int numUsers;
     public User userPrefab;
     public List<PlayerBehavior> pieces = new List<PlayerBehavior>();
     public List<JailedPlayerBehavior> jailedPieces = new List<JailedPlayerBehavior>();
     public GameObject userManagersParent;
 
     void Start(){
-        for(int i = 0; i < numUsers; i++){
+        for(int i = 0; i < References.numUsers; i++){
             User user = Instantiate(userPrefab, userManagersParent.transform);
             user.name = "User " + (i + 1) + " Manager";
             user.playerNumber = i + 1;

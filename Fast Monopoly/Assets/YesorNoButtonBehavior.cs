@@ -81,7 +81,6 @@ public class YesorNoButtonBehavior : ButtonBehavior
 
     public void noButton(){
         References.canvas.purchaseMenu.SetActive(false);
-        References.canvas.rerollDiceMenu.SetActive(false);
         
         References.canvas.nextTurn();
     }
@@ -89,6 +88,7 @@ public class YesorNoButtonBehavior : ButtonBehavior
     public void jailedNoButton(){
 
         References.canvas.currentUsersTurn.loseOrGainMoney(-100);
+
         References.canvas.jailedMenu.SetActive(false);
         References.canvas.clickDicePrompt.SetActive(true);
 
@@ -98,5 +98,22 @@ public class YesorNoButtonBehavior : ButtonBehavior
         References.canvas.rerollDiceMenu.SetActive(false);
         References.canvas.clickDicePrompt.SetActive(true);
         References.canvas.currentUsersTurn.items[0]--;
+    }
+
+    public void rerollDiceNoButton(){
+        References.canvas.rerollDiceMenu.SetActive(false);
+        References.canvas.noToRerollDice = true;
+    }
+
+    public void justSayNo(){
+        References.canvas.justSayNoMenu.SetActive(false);
+        References.canvas.currentUsersTurn.items[1]--;
+        References.canvas.displayNewPlayersTurnMenu();
+    }
+
+    public void JustSayNoNoButton(){
+        References.canvas.payOtherPlayer(References.canvas.currentSpace.owner, References.canvas.currentUsersTurn);
+        References.canvas.justSayNoMenu.SetActive(false);
+        References.canvas.displayNewPlayersTurnMenu();
     }
 }

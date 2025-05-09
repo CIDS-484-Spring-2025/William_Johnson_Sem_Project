@@ -49,4 +49,28 @@ public class ButtonBehavior : MonoBehaviour
 
     }
 
+    public void ok(){
+
+        if(!References.canvas.currentUsersTurn.jailed){
+                References.canvas.clickDicePrompt.SetActive(true);
+            }else{//if jailed
+                References.canvas.jailedMenu.SetActive(true);
+            }
+
+        References.canvas.newPlayersTurnMenu.SetActive(false);
+    }
+
+    public void take(){
+        foreach (PerkItemSpawnerBehavior spawn in References.canvas.twoMoreEffectsMenu.spawns)
+        {
+            EffectsBehavior.endTurnAfterAction = false;
+            spawn.spawnedPerkOrItem.eventToTrigger.Invoke();
+        }
+        
+        EffectsBehavior.endTurnAfterAction = true;
+
+        References.canvas.twoMoreEffectsMenu.gameObject.SetActive(false);
+        References.canvas.nextTurn();
+    }
+
 }
