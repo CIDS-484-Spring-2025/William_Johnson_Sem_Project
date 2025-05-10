@@ -11,8 +11,7 @@ Choosing a direction to move after rolling (check),
 Mike moving as intended (check),
 Purchasing properties (check),
 Multiple players on the board at the same time (check),
-Ability to go to jail(check)
-
-A metric ton of Items/Perks
+Ability to go to jail(check),
+A metric ton of Items/Perks (check)
 
 
