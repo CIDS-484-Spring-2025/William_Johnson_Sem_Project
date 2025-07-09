@@ -9,10 +9,14 @@ I’ve also added a new non-player character: Mike the Tax Collector. Mike moves
 
 To add variety and player agency, the game includes items and perks. These are drawn from Community Chest and Chance Time, and there effects include:
 
-A dice reroll
-The ability to send another player to jail
-Immunity from Mike
-Immunity to Jail
+A dice reroll,
+
+The ability to send another player to jail,
+
+Immunity from Mike,
+
+Immunity to Jail,
+
 Etc.
 
 
