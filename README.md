@@ -7,7 +7,7 @@ The most significant change is allowing players to move clockwise or countercloc
 
 I’ve also added a new non-player character: Mike the Tax Collector. Mike moves clockwise around the board at half the distance of player dice rolls (rounded down). If Mike lands adjacent to a player, that player must pay $100. This creates a new spatial hazard and encourages players to think more tactically about their position and movement.
 
-To add variety and player agency, the game includes items and perks. These are drawn from Community Chest and Chance Time, and there effects include:
+To add variety and player agency, the game includes items and perks. These are drawn from Community Chest and Chance Time, and their effects include:
 
 A dice reroll,
 
