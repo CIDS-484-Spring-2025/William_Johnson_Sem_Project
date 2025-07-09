@@ -1,17 +1,22 @@
 # William_Johnson_Sem_Project
 Monopoly but actually fun
 
-I am remaking the board game Monopoly, but with a few rule chanes to make it more fun. For example, players can choose to move clockwise or counter clockwise whenever they move. This single change introduces a bunch of crazy side effects and other changes to make this not awful, such as GO not giving you any money when passing it. Instead you will gain $100 at the start of every turn. Another change is the inclusion of the tax collector, who is named Mike. Mike will circle the board clockwise and always move half of what the players rolled their dice, rounded down. If Mike lands next to you, you lose $100. I'm also hoping to add some consumable items, such as the ability to reroll your dice or send someone else to jail. Also maybe some perks, like immunnity to Mike or reactivating GO to give you money when passing it again. These would be found in community chest, and while not essential, they would make the game much more fun.
+For my semester project, I’m redesigning the board game Monopoly. This game has an iconic status, but also one that is widely recognized for its inherently flawed design. It's commonly criticized for its excessive game length, heavy reliance on luck, and lack of meaningful decision-making, all of which can lead to a frustrating experience. My goal is to retain the core theme of Monopoly while introducing new mechanics that make it more strategic, dynamic, and enjoyable.
 
-CheckList:
+The most significant change is allowing players to move clockwise or counterclockwise each turn, rather than being restricted to a single direction. This seemingly small shift adds a layer of strategy to movement and property acquisition, encouraging players to plan their routes and react to board conditions. To support the new movement system, the traditional “pass GO and collect $200” rule has been replaced with a consistent $100 income at the start of each turn.
 
-Rolling dice (check),
-Monopoly Board Movement (check),
-Choosing a direction to move after rolling (check),
-Mike moving as intended (check),
-Purchasing properties (check),
-Multiple players on the board at the same time (check),
-Ability to go to jail(check),
-A metric ton of Items/Perks (check)
+I’ve also added a new non-player character: Mike the Tax Collector. Mike moves clockwise around the board at half the distance of player dice rolls (rounded down). If Mike lands adjacent to a player, that player must pay $100. This creates a new spatial hazard and encourages players to think more tactically about their position and movement.
+
+To add variety and player agency, the game includes items and perks. These are drawn from Community Chest and Chance Time, and there effects include:
+
+A dice reroll
+The ability to send another player to jail
+Immunity from Mike
+Immunity to Jail
+Etc.
+
+
+This redesign keeps the spirit of Monopoly while fixing its major flaws, creating a faster, more strategic, and genuinely fun experience.
+
 
 
